@@ -2,8 +2,40 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import styles from './../styles/app.module.css';
 
+
+async function handleLogin(email, password) {
+    const resp = await fetch('/api/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            email,
+            password
+        })
+    })
+
+    const data = await resp.json();
+
+    if(data.success) {
+        return;
+    }
+
+    throw new Error('Wrong email or password!');
+}
+
 export default function Home() {
     const [loginError, setLoginError] = useState(null);
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const { email, password } = event.target.elements;
+
+        setLoginError(null);
+        handleLogin(email.value, password.value)
+            .then(() => Router.push('/protected-route'))
+            .catch((err) => setLoginError(err));
+    }
 
     return (
         <div className={styles.container}>
