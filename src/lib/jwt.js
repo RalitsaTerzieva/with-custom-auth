@@ -2,7 +2,6 @@ import jwt from 'jsonwebtoken';
 
 const JWT_SECRET = 'my_jwt_password';
 
-
 // This function creates a token (like a passport) for the user with their information
 // The token is signed using a secret password so it can't be tampered with
 export function encode(payload) {
