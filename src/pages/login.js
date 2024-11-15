@@ -48,10 +48,7 @@ export default function Home() {
                 <input type='password' id='password'/>
 
                 <button type='Submit'>Login</button>
-
-                {loginError && (
-                    <div className={styles.formError}>{loginError}</div>
-                )}
+                
             </form>
         </div>
     )
