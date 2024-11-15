@@ -34,6 +34,7 @@ export default (req, res) => {
 
     if(user) {
         res.setHeader('Set-Cookie',
+        // create a cookie with the user's jwt data
         serialize('my_auth', user, {path: '/', httpOnly: true })
         );
         return res.json({ success: true })
