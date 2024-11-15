@@ -1,3 +1,18 @@
+
+function authenticateUser(email, password) {
+    const validEmail = 'johndoe@somecompany.com';
+    const validPassword = 'strongpassword';
+
+    if(email === validEmail && password === validPassword) {
+        return {
+            id: 'f678f078-fcfe-43ca-9d20-e8c9a95209b6',
+            name: 'John Doe',
+            email: 'johndoe@somecompany.com'
+        }
+    }
+    return null;
+}
+
 export default (req, res) => {
     const { method } = req;
     const { email, password } = req.body;
@@ -10,5 +25,15 @@ export default (req, res) => {
         return res.status(400).json({
             error: 'Missing required params.'
         });
+    }
+
+    const user = authenticateUser(email, password);
+
+    if(user) {
+        return res.json({ user });
+    } else {
+        return res.status(401).json({
+            error: 'Wrong email or password!'
+        })
     }
 }
