@@ -1,4 +1,30 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+## with-custom-auth project
+
+A project that demonstrates how to build custom authentication using Next.js. This project follows the steps provided in the book "Real World Next.js" by Michele Riva. The primary goal is to understand the underlying logic behind custom authentication.
+
+Disclaimer: Custom authentication is not recommended for production applications. It is better to rely on well-established tools and libraries for authentication (e.g., Firebase, Auth0, NextAuth.js) for security and scalability. This project is for educational purposes only.
+
+
+## 📚 About the Project
+
+In modern web development, authentication is a critical component of any application. While numerous tools simplify this process, understanding the core logic of authentication helps developers grasp:
+
+How authentication works under the hood.
+Common pitfalls and challenges when handling user authentication.
+Security considerations in real-world applications.
+This project walks through building a basic custom authentication system using Next.js, inspired by the lessons in Real World Next.js. It is not intended for production use but as a stepping stone to learning.
+
+## ⚠️ Disclaimer
+This project is purely for educational purposes. Using custom authentication in production environments poses significant risks, including:
+
+Security vulnerabilities (e.g., improper token handling, lack of encryption).
+Maintenance challenges compared to established libraries.
+Scalability issues as your application grows.
+For production, consider using trusted solutions like:
+
+- NextAuth.js
+- Auth0
+- Firebase Authentication
 
 ## Getting Started
 
