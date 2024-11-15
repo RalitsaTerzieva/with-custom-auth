@@ -35,7 +35,8 @@ export default (req, res) => {
     if(user) {
         res.setHeader('Set-Cookie',
         // create a cookie with the user's jwt data
-        serialize('my_auth', user, {path: '/', httpOnly: true })
+        serialize('my_auth', user, {path: '/', httpOnly: true,  sameSite: 'strict', // Helps prevent CSRF attacks
+        maxAge: 3600,  })
         );
         return res.json({ success: true })
     } else {
