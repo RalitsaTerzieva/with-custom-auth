@@ -3,20 +3,14 @@ import jwt from 'jsonwebtoken';
 const JWT_SECRET = 'my_jwt_password';
 
 
-/**
- * Encodes the payload into a JWT token.
- * @param {Object} payload - The data to encode in the token.
- * @returns {string} - The generated JWT token.
- */
+// This function creates a token (like a passport) for the user with their information
+// The token is signed using a secret password so it can't be tampered with
 export function encode(payload) {
     return jwt.sign(payload, JWT_SECRET);
 }
 
-/**
- * Decodes and verifies a JWT token.
- * @param {string} token - The token to decode and verify.
- * @returns {Object} - The decoded payload if the token is valid.
- */
+// This function checks if the user's token is valid by verifying it with the secret password
+// It extracts the user information from the token if it is valid
 export function decode(token) {
     return jwt.verify(token, JWT_SECRET);
 }
